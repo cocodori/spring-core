@@ -6,8 +6,8 @@ import com.practice.core.member.MemberRepository
 import com.practice.core.member.MemoryMemberRepository
 
 class OrderServiceImpl(
-    private val memberRepository: MemberRepository = MemoryMemberRepository(),
-    private val discountPolicy: DiscountPolicy = FixDiscountPolicy()
+    private val memberRepository: MemberRepository,
+    private val discountPolicy: DiscountPolicy
 ): OrderService {
 
     override fun createOrder(

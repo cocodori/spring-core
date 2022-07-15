@@ -6,7 +6,8 @@ import com.practice.core.member.MemberService
 import com.practice.core.member.MemberServiceImpl
 
 fun main() {
-    val memberService: MemberService = MemberServiceImpl()
+    val appConfig = AppConfig()
+    val memberService: MemberService = appConfig.memberService()
     val member = Member(
         id = 1,
         name = "memberA",

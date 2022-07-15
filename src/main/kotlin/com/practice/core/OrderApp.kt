@@ -5,9 +5,9 @@ import com.practice.core.order.OrderService
 import com.practice.core.order.OrderServiceImpl
 
 fun main() {
-    val memberRepository: MemberRepository = MemoryMemberRepository()
-    val memberService: MemberService = MemberServiceImpl(memberRepository = memberRepository)
-    val orderService: OrderService = OrderServiceImpl(memberRepository = memberRepository)
+    val appConfig = AppConfig()
+    val memberService: MemberService = appConfig.memberService()
+    val orderService: OrderService = appConfig.orderService()
 
     val memberId = 1L
     val member = Member(memberId, "memberA", Grade.VIP)

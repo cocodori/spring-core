@@ -1,12 +1,20 @@
 package com.practice.core.member
 
+import com.practice.core.AppConfig
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 internal class MemberServiceTest {
 
-    val memberService: MemberService = MemberServiceImpl()
+    lateinit var memberService: MemberService
+
+    @BeforeEach
+    fun setup() {
+        val appConfig = AppConfig()
+        memberService = appConfig.memberService()
+    }
 
     @Test
     fun join() {
