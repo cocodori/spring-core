@@ -4,10 +4,15 @@ import com.practice.core.member.Grade
 import com.practice.core.member.Member
 import com.practice.core.member.MemberService
 import com.practice.core.member.MemberServiceImpl
+import org.apache.catalina.core.ApplicationContext
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 fun main() {
-    val appConfig = AppConfig()
-    val memberService: MemberService = appConfig.memberService()
+
+    val context = AnnotationConfigApplicationContext(AppConfig::class.java)
+
+    val memberService: MemberService = context.getBean("memberService", MemberService::class.java)
+
     val member = Member(
         id = 1,
         name = "memberA",

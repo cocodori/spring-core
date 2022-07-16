@@ -7,17 +7,27 @@ import com.practice.core.member.MemberServiceImpl
 import com.practice.core.member.MemoryMemberRepository
 import com.practice.core.order.OrderService
 import com.practice.core.order.OrderServiceImpl
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
+@Configuration
 class AppConfig {
 
-    private val memberRepository: MemberRepository = MemoryMemberRepository()
-
+    @Bean
     fun memberService(): MemberService =
-        MemberServiceImpl(memberRepository)
+        MemberServiceImpl(memberRepository())
 
+    @Bean
     fun orderService(): OrderService =
         OrderServiceImpl(
-            memberRepository = memberRepository,
-            discountPolicy = FixDiscountPolicy()
+            memberRepository = memberRepository(),
+            discountPolicy = discountPolicy()
         )
+
+    @Bean
+    fun discountPolicy() = FixDiscountPolicy()
+
+    @Bean
+    fun memberRepository(): MemberRepository = MemoryMemberRepository()
+
 }
