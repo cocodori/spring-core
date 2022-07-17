@@ -19,4 +19,7 @@ class OrderServiceImpl(
 
         return Order(memberId, itemName, itemPrice, discountPrice)
     }
+
+    //test
+    fun getMemberRepository() = memberRepository
 }
