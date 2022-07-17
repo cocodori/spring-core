@@ -2,8 +2,11 @@ package com.practice.core.order
 
 import com.practice.core.discount.DiscountPolicy
 import com.practice.core.member.MemberRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 
-class OrderServiceImpl(
+@Component
+class OrderServiceImpl @Autowired constructor(
     private val memberRepository: MemberRepository,
     private val discountPolicy: DiscountPolicy
 ): OrderService {

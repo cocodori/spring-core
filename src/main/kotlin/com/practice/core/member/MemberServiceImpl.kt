@@ -1,6 +1,10 @@
 package com.practice.core.member
 
-class MemberServiceImpl(
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
+
+@Component
+class MemberServiceImpl @Autowired constructor(
     private val memberRepository: MemberRepository
 ): MemberService {
     override fun join(member: Member) {

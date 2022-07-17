@@ -1,5 +1,8 @@
 package com.practice.core.member
 
+import org.springframework.stereotype.Component
+
+@Component
 class MemoryMemberRepository: MemberRepository {
 
     private val store: HashMap<Long, Member> = HashMap()
