@@ -2,8 +2,10 @@ package com.practice.core.discount
 
 import com.practice.core.member.Grade
 import com.practice.core.member.Member
+import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Component
 
+@Primary
 @Component
 class RateDiscountPolicy: DiscountPolicy {
 
