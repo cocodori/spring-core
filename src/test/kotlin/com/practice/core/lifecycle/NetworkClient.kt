@@ -1,5 +1,8 @@
 package com.practice.core.lifecycle
 
+import javax.annotation.PostConstruct
+import javax.annotation.PreDestroy
+
 class NetworkClient(
     private val url: String
 ) {
@@ -8,12 +11,14 @@ class NetworkClient(
         println("생성자 호출, url=$url")
     }
 
+    @PostConstruct
     fun init() {
         println("NetworkClient.init")
         connect()
         call("초기화 연결 메시지")
     }
 
+    @PreDestroy
     fun close() {
         println("NetworkClient.close")
         disconnect()
