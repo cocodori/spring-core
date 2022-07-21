@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 class LogDemoController(
     private val logDemoService: LogDemoService,
-    private val myLoggerProvider: ObjectProvider<MyLogger>
+    private val myLogger: MyLogger,
 ) {
 
     @RequestMapping("log-demo")
     @ResponseBody
     fun logDemo(request: HttpServletRequest): String {
         val requestURL = request.requestURL
-        val myLogger = myLoggerProvider.getObject()
 
         myLogger.requestURL = "$requestURL"
         myLogger.log("controller test")

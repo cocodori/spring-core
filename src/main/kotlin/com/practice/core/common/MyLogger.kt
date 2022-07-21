@@ -1,13 +1,14 @@
 package com.practice.core.common
 
 import org.springframework.context.annotation.Scope
+import org.springframework.context.annotation.ScopedProxyMode
 import org.springframework.stereotype.Component
 import java.util.UUID
 import javax.annotation.PostConstruct
 import javax.annotation.PreDestroy
 
 @Component
-@Scope(value = "request")
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 class MyLogger {
     lateinit var uuid: String
     lateinit var requestURL: String
